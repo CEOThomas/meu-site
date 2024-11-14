@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte - Staff</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #e74c3c;
+        }
+
+        .message-box {
+            background-color: #34495e;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .message-box h3 {
+            color: #f39c12;
+        }
+
+        .message-box p {
+            color: #ecf0f1;
+        }
+
+        .response-box {
+            background-color: #16a085;
+            padding: 10px;
+            margin-top: 10px;
+            width: 80%;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .response-box input, .response-box textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #1abc9c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .response-box button {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .response-box button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Suporte - Equipe</h1>
+    <div class="message-box">
+        <h3>Mensagem de Usuário:</h3>
+        <p><strong>Nome do Usuário:</strong> João da Silva</p>
+        <p><strong>Mensagem:</strong> Como posso resetar minha senha?</p>
+    </div>
+
+    <div class="response-box">
+        <h3>Responder à Mensagem:</h3>
+        <form action="/enviar-resposta" method="POST">
+            <textarea name="resposta" rows="5" placeholder="Digite sua resposta aqui..."></textarea>
+            <button type="submit">Enviar Resposta</button>
+        </form>
+    </div>
+
+    <br>
+    <button onclick="window.location.href='suporte_membro.html'">Voltar para a Página de Membros</button>
+
+</body>
+</html>

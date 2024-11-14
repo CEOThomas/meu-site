@@ -1,0 +1,40 @@
+<script>
+    document.getElementById('userMessageForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const userMessage = document.getElementById('user-message').value;
+        
+        fetch('/.netlify/functions/enviarMensagem', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: userMessage, user: 'João da Silva' })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Mensagem enviada!');
+            document.getElementById('user-message').value = ''; // Limpa o campo após enviar
+        })
+        .catch(error => console.error('Erro ao enviar a mensagem:', error));
+    });
+
+    // Função para atualizar a resposta do staff (simulação de recebimento)
+    function updateStaffResponse(response) {
+        document.getElementById('staff-response').textContent = response;
+    }
+
+    // Função para verificar e mostrar a resposta do staff
+    function checkStaffResponse() {
+        fetch('/.netlify/functions/getResposta')
+        .then(response => response.json())
+        .then(data => {
+            if (data.response) {
+                updateStaffResponse(data.response);
+            }
+        })
+        .catch(error => console.error('Erro ao buscar resposta:', error));
+    }
+
+    // Simulação de verificação da resposta
+    setInterval(checkStaffResponse, 3000); // Verifica a cada 3 segundos
+</script>

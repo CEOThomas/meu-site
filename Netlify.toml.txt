@@ -1,0 +1,13 @@
+[build]
+  publish = "public"
+  functions = "functions"
+
+[[redirects]]
+  from = "/suporte"
+  to = "/public/suporte.html"
+  status = 200
+
+[[redirects]]
+  from = "/support_staff"
+  to = "/public/support_staff.html"
+  status = 200

@@ -1,0 +1,19 @@
+<script>
+    function enviarResposta() {
+        const response = document.getElementById('staff-response').value;
+
+        fetch('/.netlify/functions/responderMensagem', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ response: response, user: 'João da Silva' })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Resposta enviada!');
+            document.getElementById('staff-response').value = ''; // Limpa o campo após enviar
+        })
+        .catch(error => console.error('Erro ao enviar a resposta:', error));
+    }
+</script>
